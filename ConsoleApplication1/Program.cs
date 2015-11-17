@@ -35,6 +35,13 @@ namespace ConsoleApplication1
 
         static void Main(string[] args)
         {
+            PostImpl post = new PostImpl();
+            PersonInfoImpl per = new PersonInfoImpl();
+            MyExcelReader m = new MyExcelReader("E:\\方家山\\维修二处  仪控科人员个人基本信息  20150922照片版.xlsx");
+            m.Init();
+            m.TransToContent(post.TableName, post.Convert);
+            m.TransToContent(per.TableName, per.Convert);
+
             CoursesCommon test = CoursesCommon.GetInstance();
             Courses n = test[仪控科人员信息.QA.ToString()];
             Console.WriteLine("名族:{0},key:{1}",n.Name,n.ID);
